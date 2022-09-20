@@ -20,10 +20,10 @@ Inventory::Inventory(int len)    //constructor realization
     this->size = len;
     arr = (Inventory*)calloc(len,sizeof(Inventory));    //memory allocation for array
     // this->arr = new Inventory[len];
-    srand (time(NULL));    //initialize random seed
+    srand(time(NULL));    //initialize random seed
     for(int i = 0; i < len; i++)    //assign values and print them
     {
-        this->arr[i].ID = rand() % 100000;
+        this->arr[i].ID = rand() % 100001;
         cout << i << ":" << this->arr[i].ID << endl;
     }
 }

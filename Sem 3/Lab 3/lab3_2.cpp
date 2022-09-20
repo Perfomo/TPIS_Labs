@@ -44,7 +44,7 @@ Inventory::Inventory(int len)    //constructor realization
     srand(time(NULL));    //initialize random seed
     for(int i = 0; i < len; i++)    //assign values and print them
     {
-        this->arr[i].weight = rand() % 100 + 1;
+        this->arr[i].weight = rand() % 101 + 1;
         cout << "\n" <<  i << ":" << endl;
         cout << "Input name:" << endl;
         cin >> k;
@@ -84,9 +84,9 @@ int main()
         cout << "Input amount of items: " << endl;
         cin >> size;
         Inventory Keqing(size);
-        cout << "------------------" << "Results: " << endl;
+        cout << "\n------------------" << "Results: " << endl;
         Keqing.run();    //method run call
-        cout << "\nOne more iteration?" << "\n1 - yes\nelse - exit" << endl;
+        cout << "\nOne more iteration?" << "\n1 - yes\nelse - exit\n" << endl;
         cin.ignore();
         if(_getch() == '1')
         {
@@ -94,6 +94,7 @@ int main()
         }
         else
         {
+            cout << "Have a nice day!!!" << endl;
             break;
         }
     }
