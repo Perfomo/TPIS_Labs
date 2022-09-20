@@ -20,7 +20,6 @@ int _getch(void)
 	return ch;
 }
 
-
 class Inventory    // class declartion
 {
     // fields and methods of the class
