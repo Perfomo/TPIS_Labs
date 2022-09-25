@@ -4,22 +4,6 @@
 #include "../Sources/Source1.h"
 using namespace std;
 
-#include <termios.h>
-#include <unistd.h>
-int _getch(void)
-{
-	struct termios oldattr, newattr;
-	int ch;
-
-	tcgetattr(STDIN_FILENO, &oldattr);
-	newattr = oldattr;
-	newattr.c_lflag &= ~(ICANON | ECHO);
-	tcsetattr(STDIN_FILENO, TCSANOW, &newattr);
-	ch = getchar();
-	tcsetattr(STDIN_FILENO, TCSANOW, &oldattr);
-	return ch;
-}
-
 class Arena
 {
 private:
