@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
-// #include "../New Sources/NewSource.h"
-#include "../Sources/Source1.h"
+#include "../New Sources/NewSource.h"
+// #include "../Sources/Source1.h"
 using namespace std;
 
 class Arena
@@ -13,7 +13,7 @@ public:
     Arena(int x);
     ~Arena();
     friend void run(Arena *obj);
-    friend Arena set(Arena *obj);
+    friend Arena* set();
     friend void view(Arena *obj);
 };
 
@@ -62,10 +62,7 @@ Arena* set()
     int new_size;
     while(true)
     {
-        cout << "\nInput field size: " << endl;
-        new_size = InputInt("all");
-        // cin >> new_size;
-        // cin.ignore();
+        new_size = InputInt("\nInput field size: ");
         if(new_size > 1)
         {
             return new Arena(new_size); 
@@ -75,6 +72,7 @@ Arena* set()
             cout << "Size must be more than 1.." << endl; 
         }
     }
+    return nullptr;
 }
 
 void run(Arena *obj)
@@ -104,10 +102,8 @@ int main()
     Arena *field;
     while(true)
     {
-        cout << "\nInput field size: " << endl;
-        size = InputInt("all");
-        // cin >> size;
-        // cin.ignore();
+        size = InputInt("\nInput field size: ");
+        cin.ignore();
         if(size > 1)
         {
             field = new Arena(size);
