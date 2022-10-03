@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 // #include "../Sources/Source1.h"
+#include "../New Sources/NewSource.h"
 using namespace std;
 
 class Inventory    // class declartion
@@ -48,7 +49,19 @@ void Inventory::run()
 
 int main()
 {
-    Inventory Keqing(10);
+    int size;
+    cout << "Size(>2): " << endl;
+    while(true)
+    {
+        size = InputInt();
+        if(size > 2)
+        {
+            break;
+        }
+        cout << "Bad number... Size must be more that 2..." << endl;
+    }
+    cout << endl;
+    Inventory Keqing(size);
     Keqing.run();    //method run call
     return 0;
 }
