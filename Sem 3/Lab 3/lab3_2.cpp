@@ -2,23 +2,8 @@
 #include <stdlib.h>
 #include <string>
 // #include "../Sources/Source1.h"
+#include "../New Sources/NewSource.h"
 using namespace std;
-
-#include <termios.h>
-#include <unistd.h>
-int _getch(void)
-{
-	struct termios oldattr, newattr;
-	int ch;
-
-	tcgetattr(STDIN_FILENO, &oldattr);
-	newattr = oldattr;
-	newattr.c_lflag &= ~(ICANON | ECHO);
-	tcsetattr(STDIN_FILENO, TCSANOW, &newattr);
-	ch = getchar();
-	tcsetattr(STDIN_FILENO, TCSANOW, &oldattr);
-	return ch;
-}
 
 class Inventory    // class declartion
 {
@@ -35,8 +20,7 @@ public:
 Inventory::Inventory(int len)    //constructor realization
 {
     string k;
-    cout << "Input hero id: " << endl;
-    cin >> this->ID;
+    this->ID = InputInt("\nInput hero id: ");
     this->size = len;
     this->arr = (Inventory*)calloc(len,sizeof(Inventory));    //memory allocation for array
     // this->arr = new Inventory[len];
@@ -48,8 +32,7 @@ Inventory::Inventory(int len)    //constructor realization
         cout << "Input name:" << endl;
         cin >> k;
         arr[i].name = k;
-        cout << "Input ID:" << endl;
-        cin >> arr[i].ID;
+        arr[i].ID = InputInt("Input ID:");
         cout << "weight: " << arr[i].weight << endl;
     }
 }
@@ -80,8 +63,15 @@ int main()
     while(true)
     {
         t = true;
-        cout << "Input amount of items: " << endl;
-        cin >> size;
+        while(true)
+        {
+            size = InputInt("\nInput amount of items: ");
+            if(size > 2)
+            {
+                break;
+            }
+            cout << "Bad number... Size must be more that 2..." << endl;
+        }
         Inventory Keqing(size);
         cout << "\n------------------" << "Results: " << endl;
         Keqing.run();    //method run call
