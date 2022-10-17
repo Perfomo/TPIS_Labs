@@ -9,6 +9,7 @@ Server::Server()
     {
         qDebug() << "Error";
     }
+    nextBlockSize = 0;
 }
 
 void Server::incomingConnection(qintptr socketDescriptor)
@@ -29,10 +30,30 @@ void Server::slotReadyRead()
     if(in.status() == QDataStream::Ok)
     {
         qDebug() << "Ready...";
-        QString str;
-        in >> str;
-        qDebug() << str;
-        SendToClient(str);
+        for(;;)
+        {
+            if(nextBlockSize == 0)
+            {
+                if(socket -> bytesAvailable() < 2)
+                {
+                    qDebug() << "Data < 2, break";
+                    break;
+                }
+                in >> nextBlockSize;
+                qDebug() << "nextblocksize = " << nextBlockSize;
+            }
+            if(socket -> bytesAvailable() < nextBlockSize)
+            {
+                qDebug() << "Data not full, break";
+                break;
+            }
+            QString str;
+            in >> str;
+            nextBlockSize = 0;
+            qDebug() << str;
+            SendToClient(str);
+            break;
+        }
     }
     else
     {
@@ -45,7 +66,11 @@ void Server::SendToClient(QString str)
     Data.clear();
     QDataStream out(&Data, QIODevice::WriteOnly);
     out.setVersion(QDataStream::Qt_6_3);
-    out << str;
+    out << quint16(0) << str;
+
+    out.device() -> seek(0);
+
+    out << quint16(Data.size()-sizeof(quint16));
     for(int i = 0; i < Sockets.size(); i++)
     {
         Sockets[i] -> write(Data);

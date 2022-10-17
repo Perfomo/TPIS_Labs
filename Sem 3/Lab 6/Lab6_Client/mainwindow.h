@@ -33,5 +33,6 @@ private:
     void SendToServer(QString str);
     quint16 nextBlockSize;
     QString s;
+
 };
 #endif // MAINWINDOW_H

@@ -84,6 +84,7 @@ void MainWindow::on_pushButton_2_clicked()
 {
     QString sr = QTime::currentTime().toString();
     SendToServer(sr + ":" + s + ":" + ui -> lineEdit -> text());
+//    SendToServer(ui -> lineEdit -> text());
 }
 
 
@@ -91,4 +92,3 @@ void MainWindow::on_lineEdit_returnPressed()
 {
     SendToServer(ui -> lineEdit -> text());
 }
-

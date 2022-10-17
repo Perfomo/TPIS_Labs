@@ -19,6 +19,8 @@ private:
 
         void SendToClient(QString str);
 
+        quint16 nextBlockSize;
+
 public slots:
         void incomingConnection(qintptr socketDescriptor);
         void slotReadyRead();
