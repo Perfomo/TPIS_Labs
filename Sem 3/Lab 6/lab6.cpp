@@ -33,7 +33,7 @@ Monsters::~Monsters()
 class WindowsUser :public Monsters
 {
 private:
-    int k ,HP_, damage_, armour_;
+    int k;
 
 public:
     WindowsUser(int HP_, int damage_, int armour_);
@@ -46,7 +46,7 @@ public:
     }
     virtual const void Scream()
     {
-        cout << "Monster said: kjdjehfjehf" << endl;
+        cout << "Monster said: Windows top" << endl;
     }
 };
 
@@ -65,7 +65,7 @@ WindowsUser::~WindowsUser()
 class Ork :public Monsters
 {
 private:
-    int k ,HP_, damage_, armour_;
+    int k;
 
 public:
     Ork(int HP_, int damage_, int armour_);
@@ -96,7 +96,7 @@ Ork::~Ork()
 class Pony :public Monsters
 {
 private:
-    int k ,HP_, damage_, armour_;
+    int k;
 
 public:
     Pony(int HP_, int damage_, int armour_);
@@ -109,7 +109,7 @@ public:
     }
     virtual const void Scream()
     {
-        cout << "Monster said: My little pony" << endl;
+        cout << "Monster said: Friendship is magic!" << endl;
     }
 };
 
@@ -121,21 +121,26 @@ Pony::Pony(int HP_, int damage_, int armour_)
 
 Pony::~Pony()
 {
-    cout << "/_\" << endl;
+    cout << "&_&" << endl;
+}
+
+void say(Monsters &monster)
+{
+    monster.Scream();
 }
 
 int main()
 {
     WindowsUser b(1, 1, 1);
     b.PrintInfo();
-    b.Scream();
+    say(b);
     cout << endl;
     Ork t(1, 1, 1);
     t.PrintInfo();
-    t.Scream();
+    say(t);
     cout << endl;
     Pony s(1,1,1);
     s.PrintInfo();
-    s.Scream();
+    say(s);
     return 0;
 }
