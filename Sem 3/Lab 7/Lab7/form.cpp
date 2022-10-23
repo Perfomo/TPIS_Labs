@@ -1,7 +1,4 @@
 #include "form.h"
-#include "str_arr.h"
-#include "int_arr.h"
-#include "dbl_arr.h"
 #include "ui_form.h"
 
 Form::Form(QWidget *parent) :
@@ -17,6 +14,8 @@ Form::Form(QWidget *parent) :
 Form::~Form()
 {
     obj_str -> ~Str_arr();
+    obj_dbl -> ~Dbl_arr();
+    obj_int -> ~Int_arr();
     delete ui;
 }
 
@@ -52,6 +51,7 @@ void Form::on_pushButton_clicked()
         {
             ui -> textBrowser -> setText(obj_str -> print());
             ui -> label -> setText("Ready");
+            QMessageBox::information(this, "Info", "Your results are ready!!!");
             obj_str = nullptr;
         }
         else
@@ -70,6 +70,7 @@ void Form::on_pushButton_clicked()
             {
                 ui -> textBrowser -> setText(obj_int -> print());
                 ui -> label -> setText("Ready");
+                QMessageBox::information(this, "Info", "Your results are ready!!!");
                 obj_int = nullptr;
             }
             else
@@ -93,6 +94,7 @@ void Form::on_pushButton_clicked()
             {
                 ui -> textBrowser -> setText(obj_dbl -> print());
                 ui -> label -> setText("Ready");
+                QMessageBox::information(this, "Info", "Your results are ready!!!");
                 obj_dbl = nullptr;
             }
             else
@@ -104,6 +106,15 @@ void Form::on_pushButton_clicked()
         {
             ui -> label -> setText(QString::number(obj_dbl -> ready) + ": Input Error...");
         }
+    }
+}
+
+void Form::keyPressEvent(QKeyEvent *e)
+{
+    if(e -> key() == Qt::Key_Escape)
+    {
+        this -> close();
+        qDebug() << "escape";
     }
 }
 

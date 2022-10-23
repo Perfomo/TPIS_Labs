@@ -28,6 +28,8 @@ FORMS += \
     mainwindow.ui
 
 RC_FILE = ../temp/ico.rc
+RC_FILE = ico.rc
+
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
