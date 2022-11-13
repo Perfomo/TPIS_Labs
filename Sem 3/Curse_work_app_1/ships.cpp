@@ -12,13 +12,13 @@ double Ships::get_res_speed(bool &ok1, bool &ok2)
     double res, num;
 
     num = this -> first_speed.toDouble(&ok1);
-    if(num < 0)
+    if(num < 0 or num >= 3e8)
     {
         ok1 = false;
     }
     res = num;
     num = this -> second_speed.toDouble(&ok2);
-    if(num < 0)
+    if(num < 0 or num >= 3e8)
     {
         ok2 = false;
     }
@@ -27,7 +27,7 @@ double Ships::get_res_speed(bool &ok1, bool &ok2)
 
 QString Ships::get_info()
 {
-    return "Last information about ships, that was successfully used:\nThe speed of the first ship is " + this -> first_speed + " km/h, and the speed of the second is " + this -> second_speed + " km/h.";
+    return "The speed of the first ship is " + this -> first_speed + " km/h, and the speed of the second is " + this -> second_speed + " km/h.";
 }
 
 Ships_travel::Ships_travel(Ui::MainWindow *ui)
