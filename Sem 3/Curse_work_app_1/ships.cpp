@@ -3,8 +3,8 @@
 
 Ships::Ships(Ui::MainWindow *ui)
 {
-    this -> first_speed = ui -> lineEdit -> text();
-    this -> second_speed = ui -> lineEdit_2 -> text();
+    this -> first_speed = ui -> lineEdit -> text().replace(",", ".");
+    this -> second_speed = ui -> lineEdit_2 -> text().replace(",", ".");
 }
 
 double Ships::get_res_speed(bool &ok1, bool &ok2)
@@ -12,17 +12,17 @@ double Ships::get_res_speed(bool &ok1, bool &ok2)
     double res, num;
 
     num = this -> first_speed.toDouble(&ok1);
-    if(num < 0 or num >= 3e8)
+    if(num < 0 or num >= 520)
     {
         ok1 = false;
     }
     res = num;
     num = this -> second_speed.toDouble(&ok2);
-    if(num < 0 or num >= 3e8)
+    if(num < 0 or num >= 520)
     {
         ok2 = false;
     }
-    return res += num;
+    return res + num;
 }
 
 QString Ships::get_info()
@@ -33,7 +33,7 @@ QString Ships::get_info()
 Ships_travel::Ships_travel(Ui::MainWindow *ui)
     :Ships(ui)
 {
-    this -> time = ui -> lineEdit_3 -> text();
+    this -> time = ui -> lineEdit_3 -> text().replace(",", ".");
 }
 
 double Ships_travel::get_distance(bool &ok3)
@@ -46,4 +46,14 @@ double Ships_travel::get_distance(bool &ok3)
         return 0;
     }
     return (this -> first_speed.toDouble() + this -> second_speed.toDouble()) * num;
+}
+
+Ships::~Ships()
+{
+    qDebug() << "-_-";
+}
+
+Ships_travel::~Ships_travel()
+{
+    qDebug() << "*_*";
 }
