@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     form = new Form;
-    QString info = "";
+    info = "";
     connect(this, SIGNAL(signal(QString)), form, SLOT(slot(QString)));
 }
 
@@ -35,17 +35,14 @@ void MainWindow::on_pushButton_clicked()
     }
     if(ok1 and ok2)
     {
-        ui -> lineEdit -> setText(ui->lineEdit->text() + " km/h");
-        ui -> lineEdit_2 -> setText(ui->lineEdit_2->text() + " km/h");
-        ui -> label_5 -> setText(QString::number(res_speed) + " km/h");
+        ui -> label_5 -> setText(QString::number(res_speed));
         info = ship.get_info();
         if(ui -> lineEdit_3 -> text() != "Time")
         {
             distance = ship.get_distance(ok2);
             if(ok2)
             {
-                ui -> lineEdit_3 -> setText(ui -> lineEdit_3 -> text() + " h");
-                ui -> label_4 -> setText(QString::number(distance) + " km");
+                ui -> label_4 -> setText(QString::number(distance));
             }
             else
             {
@@ -62,8 +59,16 @@ void MainWindow::on_pushButton_clicked()
     {
         if(ui -> lineEdit_3 -> text() != "Time")
         {
-            ui -> lineEdit_3 -> setText("Error");
+            ui -> lineEdit_3 -> text().toDouble(&ok2);
+            if(!ok2)
+            {
+                ui -> lineEdit_3 -> setText("Error");
+            }
             ui -> label_4 -> setText("Error");
+        }
+        else
+        {
+            ui -> label_4 -> setText("Distance:");
         }
     }
 }
@@ -77,7 +82,7 @@ void MainWindow::on_pushButton_2_clicked()
     }
     else
     {
-        emit signal(info);
+        emit signal("Last information about ships, that was successfully used:\n" + info);
     }
     form -> show();
 }
