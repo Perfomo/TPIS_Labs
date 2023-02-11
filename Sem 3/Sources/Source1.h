@@ -9,6 +9,6 @@
 bool odouble(std::string x);
 double InputDouble(std::string rool);
 bool oint(std::string x, std::string rool_1);
-int InputInt(std::string rool_1);
+// int InputInt(std::string rool_1);
 int n13(char rool, int n);
-int _getch(void);
+// int _getch(void);

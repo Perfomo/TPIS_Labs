@@ -61,7 +61,7 @@ int main()
                 }
             }
             obj = new Game(num);
-            cout << "\nOk, now childrens!" << endl;
+            cout << "\nOk, now children!" << endl;
             while(true)
             {
                 while(true)
