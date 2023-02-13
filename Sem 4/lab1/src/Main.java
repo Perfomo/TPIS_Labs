@@ -67,7 +67,7 @@ public class Main {
                 num = sc.nextInt();
                 if(num >= 1 & num <= 10) {
                     if(num == x) {
-                        System.out.println("\nGood job!\n" + x + " = " + num);
+                        System.out.println("\nGood job!\n" + "x" + " = " + num);
                     }
                     else {
                         if(num > x) {
@@ -240,8 +240,8 @@ public class Main {
     public static void task_14() {
         int n = 0, m = 0;
         while (n == m) {
-            n = (int) (Math.random() * (8 - 1) + 1);
-            m = (int) (Math.random() * (8 - 1) + 1);
+            n = (int) (Math.random() * (8 - 2) + 2);
+            m = (int) (Math.random() * (8 - 2) + 2);
         }
         int[][] mat = new int[n][m];
         for(int i = 0; i < n; i++) {
@@ -264,6 +264,9 @@ public class Main {
                 }
             }
             int temp = mat[i][0];
+            if (temp == min){
+                min_i = max_i;
+            }
             mat[i][0] = max;
             mat[i][max_i] = temp;
             temp = mat[i][m-1];
