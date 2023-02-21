@@ -106,11 +106,47 @@ public class Main {
     mat2.mult(mat3);
     System.out.println();
     }
+    public static void task_14() {
+        Vargs.show(3, 7, 10, 1, 7, 9);
+        System.out.println(Vargs.sum(3, 7, 10, 1, 7, 9));
+        System.out.println(Vargs.mult(3, 7, 10, 1, 7, 9));
+        int[] arr = Vargs.bub_sort(3, 7, 10, 1, 7, 9);
+        for(int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + "  ");
+        }
+        System.out.println();
+    }
+    public static void task_15() {
+        String[] arr = {"top ML books.", "AI so powerful.", "Hi, im ...", "///----///"};
+        System.out.println(StrAlg.Str2ToSub(arr, 0, 2));
+    }
+    public static void task_16() {
+        BD p1 = new BD("Max; 12; 30; 120");
+        p1.show();
+        System.out.println();
+        p1.checkInfo("Lena; 20; 50; 174");
+        System.out.println();
+        p1.newName("Lena");
+        p1.newAge(20);
+        p1.newWeight(50);
+        p1.newHeight(174);
+        System.out.println();
+        p1.checkInfo("Lena; 20; 50; 174");
+        System.out.println();
+        p1.show();
+    }
+    public static void task_17(Scanner sc) {
+        Color k;
+        k = Color.RED;
+        k.show();
+        System.out.println("Input num(1-4): ");
+        k.chose(sc.nextInt());
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         boolean exit = false;
         while (!exit) {
-            System.out.println("\nInput task number [1, 14]\n0 - exit");
+            System.out.println("\nInput task number [1, 17]\n0 - exit");
             if (sc.hasNextInt()) {
                 int i = sc.nextInt();
                 switch (i) {
@@ -131,6 +167,10 @@ public class Main {
                     case 11 -> task_11();
                     case 12 -> task_12();
                     case 13 -> task_13();
+                    case 14 -> task_14();
+                    case 15 -> task_15();
+                    case 16 -> task_16();
+                    case 17 -> task_17(sc);
                     default -> System.out.println("\nError...");
                 }
             }
