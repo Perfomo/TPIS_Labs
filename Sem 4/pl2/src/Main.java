@@ -106,6 +106,45 @@ public class Main {
     mat2.mult(mat3);
     System.out.println();
     }
+    public static void task_13_2_19() {
+        Matrix2 arr1 = new Matrix2(3);
+        Matrix2 arr2 = new Matrix2(3);
+        Matrix2 arr0 = new Matrix2(4);
+        Matrix2 mat1 = new Matrix2(2, 3);
+        Matrix2 mat2 = new Matrix2(2, 3);
+        Matrix2 mat0 = new Matrix2(3, 3);
+        arr0.view();
+        arr1.view();
+        arr2.view();
+        mat0.view();
+        mat1.view();
+        mat2.view();
+        System.out.println("+++++++++++");
+        arr1.plus(arr2);
+        arr0.plus(arr2);
+        System.out.println("/////");
+        mat0.plus(mat1);
+        mat1.plus(mat2);
+        System.out.println("-----------");
+        arr1.view();
+        arr2.view();
+        arr0.view();
+        mat0.view();
+        mat1.view();
+        mat2.view();
+        arr1.minus(arr2);
+        arr0.minus(arr2);
+        System.out.println("/////");
+        mat0.minus(mat1);
+        mat1.minus(mat2);
+        System.out.println("*************");
+        mat0.view();
+        mat1.view();
+        mat2.view();
+        arr0.mult(arr1);
+        mat0.mult(mat0);
+        mat0.mult(mat2);
+    }
     public static void task_14() {
         Vargs.show(3, 7, 10, 1, 7, 9);
         System.out.println(Vargs.sum(3, 7, 10, 1, 7, 9));
@@ -142,6 +181,13 @@ public class Main {
         System.out.println("Input num(1-4): ");
         k.chose(sc.nextInt());
     }
+    public static void par_task_1() {
+        Car mas[] = Car.createMas(3);
+        Car.showMas(mas);
+        Car best = Car.bestCar(mas);
+        System.out.println("kfjsf");
+        best.show();
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         boolean exit = false;
@@ -171,6 +217,7 @@ public class Main {
                     case 15 -> task_15();
                     case 16 -> task_16();
                     case 17 -> task_17(sc);
+                    case 19 -> task_13_2_19();
                     default -> System.out.println("\nError...");
                 }
             }

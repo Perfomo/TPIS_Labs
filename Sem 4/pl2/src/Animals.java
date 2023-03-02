@@ -22,7 +22,7 @@ public class Animals {
         System.out.println("Animal info: " + "\nWeight: " + weight + "\nHeight: " + height + "\nAge: " + age + "\nName: " + name);
     }
     public boolean check_name(Animals obj) {
-        return (this.name == obj.name) ? true : false;
+        return (this.name.equals(obj.name));
     }
     public void check_const() {
         if(this.age > AGE) {
