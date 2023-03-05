@@ -22,12 +22,19 @@ public class Circle {
     public void show() {
         System.out.println("Radius: " + r + "\nX: " + x + "\nY: " + y);
     }
-    public void change_info(int x, int y) {
-        if(this.x >= x) {
-
-        }
-        else {
-            System.out.println("You need to ");
-        }
+    public void change_x_y(int x, int y) {
+        this.x = x;
+        this.y = y;
+        System.out.println("New x is " + x + "\nNew y is " + y);
+    }
+    public void change_r(double r) {
+        this.r = r;
+        System.out.println("New r is " + r);
+    }
+    public double square() {
+        return 2 * Math.PI * r * r;
+    }
+    public double len() {
+        return 2 * Math.PI * r;
     }
 }
