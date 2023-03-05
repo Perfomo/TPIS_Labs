@@ -158,6 +158,9 @@ public class Main {
     public static void task_15() {
         String[] arr = {"top ML books.", "AI so powerful.", "Hi, im ...", "///----///"};
         System.out.println(StrAlg.Str2ToSub(arr, 0, 2));
+        String[] arr1 = {"aAbBcCdD", "ML is $bad&$&$ & amazing$nope&"};
+        arr1 = StrAlg.delUpper(arr1, 0);
+        arr1 = StrAlg.delBetChars(arr1, 1, '$', '&');
     }
     public static void task_16() {
         BD p1 = new BD("Max; 12; 30; 120");
