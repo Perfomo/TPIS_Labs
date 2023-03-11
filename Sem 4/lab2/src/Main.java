@@ -30,6 +30,66 @@ public class Main {
         b1.change_amount();
         b1.get_info("Linux...");
     }
+    public static void task_4() {
+        Fraction f1 = new Fraction(3, 5);
+        Fraction f2 = new Fraction(9, 3);
+        Fraction f3 = new Fraction(1, 4);
+        System.out.println("\n++++++++++");
+        f1.sum(f2, f3);
+        f1.reset(3, 5);
+        System.out.println("\n----------");
+        f1.minus(f2);
+        f1.reset(3, 5);
+        f1.minus(f3);
+        f1.reset(3, 5);
+        System.out.println("\n**********");
+        f1.mult(f2, f3);
+        f1.reset(3, 5);
+        System.out.println("\n//////////");
+        f1.divi(f2);
+        f1.reset(3, 5);
+        f1.divi(f3);
+        f1.reset(3, 5);
+        System.out.println("\n{}{}{}{}{}{}");
+        int k = (int) (Math.random() * (11 - 3) + 3);
+        Fraction[] arr = new Fraction[k];
+        for(int i = 0; i < arr.length; i++) {
+            arr[i] = new Fraction();
+            System.out.print(arr[i].m + "/" + arr[i].n + "  ");
+        }
+        System.out.println();
+        arr = Fraction.idk(arr);
+    }
+    public static void task_5() {
+        Double d = Double.valueOf("3.2");
+        String l = "3.33";
+        double s = Double.parseDouble(l);
+        int k = d.intValue();
+        long t = d.longValue();
+        short r = d.shortValue();
+        float q = d.floatValue();
+        byte z = d.byteValue();
+        System.out.println("\nDouble: " + d + "\ndouble: " + d + "\nint: " + k + "\nlong: " + t + "\nshort: " + r + "\nfloat: " + q + "\nbyte: " + z);
+        String aa = Double.toString(3.14);
+        System.out.println("\n" + aa);
+    }
+    public static void task_6() {
+        Scanner sc = new Scanner(System.in);
+        String str;
+        System.out.println("\nInput string: ");
+        str = sc.nextLine();
+        System.out.println("Str: " + str);
+        System.out.println("Last char is: " + str.charAt(str.length()-1));
+        System.out.println("Str ends with '!!!' - " + (str.endsWith("!!!") ? "True" : "False"));
+        System.out.println("Str starts with 'I like' - " + (str.startsWith("I like") ? "True" : "False"));
+        System.out.println("Str contains 'Java' - " + (str.contains("Java") ? "True" : "False"));
+        System.out.println("Str index of 'Java' - " + str.indexOf("Java"));
+        System.out.println("Str with 'o' instead of 'a' - " + str.replaceAll("a", "o"));
+        System.out.println("Str in upper case - " + str.toUpperCase());
+        System.out.println("Str in lower case - " + str.toLowerCase());
+        System.out.println("Str's three first letters - " + str.substring(0,3));
+    }
+
     public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     boolean exit = false;
@@ -45,6 +105,9 @@ public class Main {
                 case 1 -> task_1();
                 case 2 -> task_2();
                 case 3 -> task_3();
+                case 4 -> task_4();
+                case 5 -> task_5();
+                case 6 -> task_6();
                 default -> System.out.println("\nError...");
             }
         }
