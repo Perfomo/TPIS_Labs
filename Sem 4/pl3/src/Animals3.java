@@ -1,18 +1,18 @@
-public class Animals2 {
+public abstract class Animals3 {
     private double weight;
     private int age;
     private String name;
-    public Animals2(double weight, int age, String name) {
+    public Animals3(double weight, int age, String name) {
         this.weight = weight;
         this.age = age;
         this.name = name;
     }
-    public Animals2(Animals2 obj) {
+    public Animals3(Animals3 obj) {
         this.weight = obj.weight;
         this.age = obj.age;
         this.name = obj.name;
     }
-    public Animals2() {
+    public Animals3() {
         this.weight = 0;
         this.age = 0;
         this.name = "cattt";
@@ -23,6 +23,7 @@ public class Animals2 {
         this.weight = weight;
         System.out.println("\nNew name: " + name + "\nNew age: " + age + "\nNew weigh: " + weight);
     }
+    public abstract void voice();
     public String getName() {
         return name;
     }

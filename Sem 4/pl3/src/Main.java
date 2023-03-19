@@ -33,11 +33,29 @@ public class Main {
         k.show_info_cat();
         k.show_info();
     }
+    public static void task_6() {
+        Kitten k = new Kitten("3:00");
+        k.show_info_cat();
+        k.show_info();
+        Kitten k2 = new Kitten(k);
+        k2.show_info_cat();
+        k2.show_info();
+    }
+    public static void task_7() {
+        Kitten k = new Kitten("3:00");
+        k.show_info();
+    }
+    public static void task_8() {
+        Cat3 c = new Cat3();
+        Dog d = new Dog();
+        c.voice();
+        d.voice();
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         boolean exit = false;
         while (!exit) {
-            System.out.println("\nInput task number [1, 14]\n0 - exit");
+            System.out.println("\nInput task number [1, 6]\n0 - exit");
             if (sc.hasNextInt()) {
                 int i = sc.nextInt();
                 switch (i) {
@@ -50,6 +68,9 @@ public class Main {
                     case 3 -> task_3();
                     case 4 -> task_4();
                     case 5 -> task_5();
+                    case 6 -> task_6();
+                    case 7 -> task_7();
+                    case 8 -> task_8();
                     default -> System.out.println("\nError...");
                 }
             }
