@@ -1,3 +1,4 @@
+import javax.management.Query;
 import java.util.Scanner;
 public class Main {
     public static void task_1() {
@@ -51,11 +52,31 @@ public class Main {
         c.voice();
         d.voice();
     }
+    public static void task_9() {
+        Tool[] arr = new Tool[3];
+        arr[0] = new Drum(3);
+        arr[1] = new Guitar(10);
+        arr[2] = new Trumpet(5);
+        for(Tool i : arr) {
+            i.play();
+        }
+    }
+    public static void task_10() {
+        User u1 = new User("Perfomo", "123");
+        u1.createQuery();
+        User.Query q1 = u1.new Query();
+        q1.printToLog();
+        User.Query q2 = new User("Us", "3r").new Query();
+        q2.printToLog();
+    }
+    public static void task_11() {
+        Food f = new Food();
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         boolean exit = false;
         while (!exit) {
-            System.out.println("\nInput task number [1, 6]\n0 - exit");
+            System.out.println("\nInput task number [1, 9]\n0 - exit");
             if (sc.hasNextInt()) {
                 int i = sc.nextInt();
                 switch (i) {
@@ -71,6 +92,9 @@ public class Main {
                     case 6 -> task_6();
                     case 7 -> task_7();
                     case 8 -> task_8();
+                    case 9 -> task_9();
+                    case 10 -> task_10();
+                    case 11 -> task_11();
                     default -> System.out.println("\nError...");
                 }
             }
