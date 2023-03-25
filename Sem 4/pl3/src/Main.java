@@ -1,5 +1,7 @@
-import javax.management.Query;
+import java.time.Period;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 public class Main {
     public static void task_1() {
         Cat c1 = new Cat();
@@ -71,12 +73,54 @@ public class Main {
     }
     public static void task_11() {
         Food f = new Food();
+        Cookable c = new Cookable() {
+            public void cook(String str) {
+                System.out.println("Let's cook " + str);
+            }
+        };
+        f.prepare(c, "Steak");
     }
+    public static boolean chek(String login, String password, String confirm_password) {
+        String regex = "^[A-Za-z0-9_]{1,19}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher;
+        try {
+            matcher = pattern.matcher(login);
+            if(!matcher.matches()) {
+                throw new WrongLoginException();
+            }
+            else {
+                matcher = pattern.matcher(password);
+                try {
+                    if(!matcher.matches() || !password.equals(confirm_password)) {
+                        throw new WrongPasswordException();
+                    }
+                }
+                catch (WrongPasswordException WPE) {
+                    System.out.println(WPE);
+                    return false;
+                }
+            }
+        }
+        catch (WrongLoginException WLE) {
+            System.out.println(WLE);
+            return false;
+        }
+        return true;
+    }
+    public static void task_12() {
+        System.out.println("Perfomo\t123qwe\t123qwe - " + chek("Perfomo", "123qwe", "123qwe"));
+        System.out.println("Perfomo|\t123qwe\t123qwe - " + chek("Perfomo|", "123qwe", "123qwe"));
+        System.out.println("Perfomo\t123qwe|\t123qwe - " + chek("Perfomo", "123qwe|", "123qwe"));
+        System.out.println("Perfomo\t123qwe|\t123qwe| - " + chek("Perfomo", "123qwe|", "123qwe|"));
+        System.out.println("Perfomoooooooooooooo\t123qwe\t123qwe - " + chek("Perfomoooooooooooooo", "123qwe", "123qwe"));
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         boolean exit = false;
         while (!exit) {
-            System.out.println("\nInput task number [1, 9]\n0 - exit");
+            System.out.println("\nInput task number [1, 12]\n0 - exit");
             if (sc.hasNextInt()) {
                 int i = sc.nextInt();
                 switch (i) {
@@ -95,6 +139,7 @@ public class Main {
                     case 9 -> task_9();
                     case 10 -> task_10();
                     case 11 -> task_11();
+                    case 12 -> task_12();
                     default -> System.out.println("\nError...");
                 }
             }
