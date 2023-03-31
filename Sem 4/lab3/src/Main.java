@@ -14,11 +14,14 @@ public class Main {
                     }
                     case 1 -> Task1.Main.runTask1();
                     case 2 -> Task2.com.company.Main.runTask2();
+                    case 3 -> Task3.Main.runTask3();
+                    case 4 -> Task4.Main.runTask4();
+                    case 5 -> Task5.Main.runTask5();
                     default -> System.out.println("\nError...");
                 }
             }
             else {
-                System.out.println("Input int pls...");
+                System.out.println("\nInput int pls...");
                 sc.next();
             }
         }

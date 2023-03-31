@@ -80,7 +80,7 @@ public class Main {
         };
         f.prepare(c, "Steak");
     }
-    public static boolean chek(String login, String password, String confirm_password) {
+    public static boolean check(String login, String password, String confirm_password) {
         String regex = "^[A-Za-z0-9_]{1,19}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher;
@@ -109,13 +109,12 @@ public class Main {
         return true;
     }
     public static void task_12() {
-        System.out.println("Perfomo\t123qwe\t123qwe - " + chek("Perfomo", "123qwe", "123qwe"));
-        System.out.println("Perfomo|\t123qwe\t123qwe - " + chek("Perfomo|", "123qwe", "123qwe"));
-        System.out.println("Perfomo\t123qwe|\t123qwe - " + chek("Perfomo", "123qwe|", "123qwe"));
-        System.out.println("Perfomo\t123qwe|\t123qwe| - " + chek("Perfomo", "123qwe|", "123qwe|"));
-        System.out.println("Perfomoooooooooooooo\t123qwe\t123qwe - " + chek("Perfomoooooooooooooo", "123qwe", "123qwe"));
+        System.out.println("Perfomo\t123qwe\t123qwe - " + check("Perfomo", "123qwe", "123qwe"));
+        System.out.println("Perfomo|\t123qwe\t123qwe - " + check("Perfomo|", "123qwe", "123qwe"));
+        System.out.println("Perfomo\t123qwe|\t123qwe - " + check("Perfomo", "123qwe|", "123qwe"));
+        System.out.println("Perfomo\t123qwe|\t123qwe| - " + check("Perfomo", "123qwe|", "123qwe|"));
+        System.out.println("Perfomoooooooooooooo\t123qwe\t123qwe - " + check("Perfomoooooooooooooo", "123qwe", "123qwe"));
     }
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         boolean exit = false;
@@ -140,6 +139,7 @@ public class Main {
                     case 10 -> task_10();
                     case 11 -> task_11();
                     case 12 -> task_12();
+
                     default -> System.out.println("\nError...");
                 }
             }
