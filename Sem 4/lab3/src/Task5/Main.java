@@ -5,7 +5,8 @@ import java.util.regex.Pattern;
 
 public class Main {
     public static boolean check(String login, String password, String confirm_password) {
-        String regex = "^[A-Za-z0-9_]{1,19}$";
+//        String regex = "^[A-Za-z0-9_]{1,19}$";
+        String regex = "\\w{1,19}";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher;
         try {
@@ -21,13 +22,13 @@ public class Main {
                     }
                 }
                 catch (WrongPasswordException WPE) {
-                    System.out.println(WPE);
+                    System.out.println(WPE.getMessage());
                     return false;
                 }
             }
         }
         catch (WrongLoginException WLE) {
-            System.out.println(WLE);
+            System.out.println(WLE.getMessage());
             return false;
         }
         return true;
