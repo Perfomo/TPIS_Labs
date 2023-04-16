@@ -13,6 +13,8 @@ public class Main {
                         exit = true;
                     }
                     case 1 -> Task1.Main.runTask1();
+                    case 2 -> Task2.Main.runTask2();
+                    case 3 -> Task3.Main.runTask3();
                     default -> System.out.println("\nError...");
                 }
             }
