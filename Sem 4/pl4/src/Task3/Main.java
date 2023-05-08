@@ -30,9 +30,9 @@ public class Main {
                 return "Zero";
             }
         };
-        System.out.println(mf.apply(1));
-        System.out.println(mf.apply(0));
-        System.out.println(mf.apply(-1));
+        System.out.println(f.apply(1));
+        System.out.println(f.apply(0));
+        System.out.println(f.apply(-1));
     }
 }
 
