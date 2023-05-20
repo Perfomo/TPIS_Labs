@@ -18,6 +18,8 @@ public class Main {
                     case 4 -> Task4.Main.runTask4();
                     case 5 -> Task5.Main.runTask5();
                     case 6 -> Task6.Main.runTask6();
+                    case 7 -> Task7.Main.runTask7();
+                    case 8 -> Task8.Main.runTask8();
                     default -> System.out.println("\nError...");
                 }
             }
