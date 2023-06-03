@@ -12,7 +12,10 @@ public class Main {
                         System.out.println("\nHave a nice day!!!");
                         exit = true;
                     }
-                    case 1 -> Task1.Main.runTask1();
+                    case 1 -> BSUIR.ICT.TPIS.Lab4.Task1.Main.runTask1();
+                    case 2 -> BSUIR.ICT.TPIS.Lab4.Task2.Main.runTask2();
+                    case 3 -> BSUIR.ICT.TPIS.Lab4.Task3.Main.runTask3();
+                    case 4 -> BSUIR.ICT.TPIS.Lab4.Task4.Main.runTask4();
                     default -> System.out.println("\nError...");
                 }
             }

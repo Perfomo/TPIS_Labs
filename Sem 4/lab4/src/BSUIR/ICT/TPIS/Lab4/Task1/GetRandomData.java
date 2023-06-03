@@ -1,4 +1,4 @@
-package Task1;
+package BSUIR.ICT.TPIS.Lab4.Task1;
 public class GetRandomData {
     private static final String[] names = {"Kola", "Petya", "Max", "Fedor", "Sasha", "Vova", "Dima", "Nastya", "Margo", "Sofia"};
     public static String getName() {

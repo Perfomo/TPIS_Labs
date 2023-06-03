@@ -1,4 +1,4 @@
-package Task1;
+package BSUIR.ICT.TPIS.Lab4.Task1;
 
 import java.util.LinkedList;
 
