@@ -4,7 +4,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         boolean exit = false;
         while (!exit) {
-            System.out.println("\nInput task number [1, 7]\n0 - exit");
+            System.out.println("\nInput task number [1, 6]\n0 - exit");
             if (sc.hasNextInt()) {
                 int i = sc.nextInt();
                 switch (i) {
@@ -16,6 +16,8 @@ public class Main {
                     case 2 -> BSUIR.ICT.TPIS.Lab4.Task2.Main.runTask2();
                     case 3 -> BSUIR.ICT.TPIS.Lab4.Task3.Main.runTask3();
                     case 4 -> BSUIR.ICT.TPIS.Lab4.Task4.Main.runTask4();
+                    case 5 -> BSUIR.ICT.TPIS.Lab4.Task5.Main.runTask5();
+                    case 6 -> BSUIR.ICT.TPIS.Lab4.Task6.Main.runTask6();
                     default -> System.out.println("\nError...");
                 }
             }
